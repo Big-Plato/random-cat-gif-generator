@@ -1,0 +1,21 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: floralwhite;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+h1 {
+    color:rgb(146, 104, 104);
+
+}
+
+img {
+    width: 65%;
+    height: auto;
+
+}
