@@ -8,7 +8,7 @@ searchImg.addEventListener("click", () => {
   console.log("Clicked");
   fetchCatGif(searchInput.value);
   imgSection.innerHTML = "";
-})
+});
 
 function createGifs(src) {
   const gif = document.createElement("img");
@@ -16,7 +16,7 @@ function createGifs(src) {
   imgSection.appendChild(gif);
 }
 
-function fetchCatGif(search) {
+async function fetchCatGif(search) {
   fetch(
     `https://api.giphy.com/v1/gifs/search?api_key=1cbzbJFmH5vZwyM3T1Ny0KepjJ1f7O3i&q=${search}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`,
     { mode: "cors" }
@@ -25,11 +25,11 @@ function fetchCatGif(search) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response.data)
+      console.log(response);
       for (let i = 0; i < response.data.length; i++) {
         const src = response.data[i].images.original.url;
         createGifs(src);
       }
-    });
+    })
+    .catch(function (err) {});
 }
-
