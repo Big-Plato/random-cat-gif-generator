@@ -1,13 +1,13 @@
 const gifImg = document.querySelector("#gif");
 const searchInput = document.querySelector("#search");
 const searchImg = document.querySelector("#search-img");
-const imgSection = document.querySelector("section-img");
+const imgSection = document.querySelector("#img-section");
 const gifsArray = [];
-
-fetchCatGif();
 
 searchImg.addEventListener("click", () => {
   console.log("Clicked");
+  fetchCatGif(searchInput.value);
+  imgSection.innerHTML = "";
 })
 
 function createGifs(src) {
@@ -25,8 +25,11 @@ function fetchCatGif(search) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response)
-        // img.src = response.data.images.original.url;
+      console.log(response.data)
+      for (let i = 0; i < response.data.length; i++) {
+        const src = response.data[i].images.original.url;
+        createGifs(src);
+      }
     });
 }
 
