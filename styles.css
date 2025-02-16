@@ -10,6 +10,8 @@
 }
 
 body {
+    margin: 0;
+    border: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -47,6 +49,17 @@ h1 {
 
 #search-div img {
     cursor: pointer;
+}
+
+#img-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#img-section img {
+    flex: 1;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 
